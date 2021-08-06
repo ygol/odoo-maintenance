@@ -1,1 +1,1 @@
-hello!
+from . import maintenance

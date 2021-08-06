@@ -1,1 +1,3 @@
-hello world!
+# -*- coding: utf-8 -*-
+
+from . import models
