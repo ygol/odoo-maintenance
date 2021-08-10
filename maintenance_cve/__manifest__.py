@@ -33,11 +33,11 @@ Generic tool to help an organization to keep track of CVEs and the work behind.
     'images': [''],
     'author': 'Vertel AB',
     'website': 'https://www.vertel.se',
-    'depends': [
-    'maintenance', 'website'
-    ],
+    'depends': ['maintenance', 'website', 'portal'],
     'data': [
-    'views/maintenance_views.xml',
+        'security/ir.model.access.csv',
+        'views/maintenance_views.xml',
+        'templates/maintenance_cve_templates.xml',
     ],
     'application': True,
     'installable': True,
