@@ -17,7 +17,7 @@ class MaintenanceController(CustomerPortal):
         maintenance_id = request.env['maintenance.request']
 
         domain = [
-            ('is_cve', '=', True)
+            ('website_published', '=', True), ('is_cve', '=', True),
         ]
 
         searchbar_sortings = {
@@ -66,7 +66,6 @@ class MaintenanceController(CustomerPortal):
         })
         return request.render("maintenance_cve.portal_cve_maintenance_list", values)
 
-    @http.route('/security/cve/<int:maintenance_id>', auth='public', type='http', website=True)
-    def maintenance_security(self, maintenance_id, **kw):
-        maintenance_id = request.env['maintenance.request'].sudo().browse(maintenance_id)
-        return request.render("maintenance_cve.portal_cve_maintenance", {'maintenance': maintenance_id})
+    @http.route('/security/cve/<model("maintenance.request"):maintenance>', auth='public', type='http', website=True)
+    def maintenance_security(self, maintenance, **kw):
+        return request.render("maintenance_cve.portal_cve_maintenance", {'maintenance': maintenance, 'main_object': maintenance, 'edit_page': False })
