@@ -25,12 +25,7 @@
     'version': '14.0.0.0',
     'category': 'Tools',
     'summary': 'Keep track of those CVEs',
-    'description': """
-Generic tool to help an organization to keep track of CVEs and the work behind.
-
-
-""",
-    'images': [''],
+    'description': """Generic tool to help an organization to keep track of CVEs and the work behind.""",
     'author': 'Vertel AB',
     'website': 'https://www.vertel.se',
     'depends': ['maintenance', 'website', 'portal'],
@@ -38,6 +33,7 @@ Generic tool to help an organization to keep track of CVEs and the work behind.
         'security/ir.model.access.csv',
         'views/maintenance_views.xml',
         'templates/maintenance_cve_templates.xml',
+        'data/data.xml',
     ],
     'application': True,
     'installable': True,

@@ -38,7 +38,7 @@ class MaintenanceRequest(models.Model):
     severity_rate = fields.Selection([('None', 'None'), ('Low', 'Low'), ('Medium', 'Medium'), ('High', 'High')],
                                      string="Severity Rate")
 
-    cve_action = fields.Char(string="Action")
+    cve_action = fields.Text(string="Action")
 
     cve_package = fields.Char(string="Package")
 
@@ -50,6 +50,30 @@ class MaintenanceRequest(models.Model):
         super(MaintenanceRequest, self)._compute_website_url()
         for cve in self:
             cve.website_url = "/security/cve/%s" % slug(cve)
+
+    def check_on_ubuntu(self):
+        return {
+            'type': 'ir.actions.act_url',
+            'name': "Ubuntu Security",
+            'target': 'new',
+            'url': "https://ubuntu.com/security/%s" % self.name,
+        }
+
+    def check_on_cert(self):
+        return {
+            'type': 'ir.actions.act_url',
+            'name': "Cert Security",
+            'target': 'new',
+            'url': "https://www.cert.se/sok?s%s" % self.name,
+        }
+
+    def check_on_cve_mitre(self):
+        return {
+            'type': 'ir.actions.act_url',
+            'name': "CVE Mitre",
+            'target': 'new',
+            'url': "https://cve.mitre.org/cgi-bin/cvename.cgi?name==%s" % self.name,
+        }
 
 
 class MaintenanceTeam(models.Model):
