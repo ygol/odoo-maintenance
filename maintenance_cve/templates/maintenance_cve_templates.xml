@@ -1,0 +1,90 @@
+<odoo>
+    <template id="portal_cve_maintenance_list" name="CVE Maintenance">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Maintenance CVE</t>
+            </t>
+            <t t-if="not maintenances">
+                <p>There are currently no Maintenance CVE.</p>
+            </t>
+            <t t-if="maintenances" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Title</th>
+                        <th>Type</th>
+                        <th class="text-right">Request Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="maintenances" t-as="maintenance">
+                        <tr>
+                            <td>
+                                <a t-attf-href="/security/cve/{{maintenance.id}}" t-att-title="maintenance.name">
+                                    <t t-esc="maintenance.name"/>
+                                </a>
+                            </td>
+                            <td><span t-field="maintenance.maintenance_type"/></td>
+                            <td class="text-right"><span t-field="maintenance.request_date"/></td>
+                        </tr>
+                    </t>
+                </tbody>
+            </t>
+        </t>
+    </template>
+
+    <template id="portal_cve_maintenance" name="CVE Maintenance">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <div class="container mt16">
+                <div class="row">
+                    <div class="col-6 col-md-4" t-if="maintenance.name">
+                        <p><strong>Title</strong></p>
+                        <p><span t-field="maintenance.name"/></p>
+                    </div>
+                    <div class="col-6 col-md-4" t-if="maintenance.equipment_id">
+                        <p><strong>Equipment</strong></p>
+                        <p><span t-field="maintenance.equipment_id.name"/></p>
+                    </div>
+                    <div class="col-6 col-md-4" t-if="maintenance.category_id">
+                        <p><strong>Category</strong></p>
+                        <p><span t-field="maintenance.category_id.name"/></p>
+                    </div>
+                    <div class="col-6 col-md-4" t-if="maintenance.maintenance_team_id">
+                        <p><strong>Team</strong></p>
+                        <p><span t-field="maintenance.maintenance_team_id.name"/></p>
+                    </div>
+                    <div class="col-6 col-md-4" t-if="maintenance.maintenance_type">
+                        <p><strong>Maintenance Type</strong></p>
+                        <p><span t-field="maintenance.maintenance_type"/></p>
+                    </div>
+                    <div class="col-6 col-md-4" t-if="maintenance.severity_rate">
+                        <p><strong>Severity Rate</strong></p>
+                        <p><span t-field="maintenance.severity_rate"/></p>
+                    </div>
+                    <div class="col-6 col-md-4" t-if="maintenance.cve_action">
+                        <p><strong>Action</strong></p>
+                        <p><span t-field="maintenance.cve_action"/></p>
+                    </div>
+                    <div class="col-6 col-md-4" t-if="maintenance.cve_package">
+                        <p><strong>Package</strong></p>
+                        <p><span t-field="maintenance.cve_package"/></p>
+                    </div>
+                    <div class="col-6 col-md-4" t-if="maintenance.request_date">
+                        <p><strong>Request Date</strong></p>
+                        <p><span t-field="maintenance.request_date"/></p>
+                    </div>
+                    <div class="col-6 col-md-4" t-if="maintenance.schedule_date">
+                        <p><strong>Schedule Date</strong></p>
+                        <p><span t-field="maintenance.schedule_date"/></p>
+                    </div>
+                    <div class="col-6 col-md-4" t-if="maintenance.duration">
+                        <p><strong>Duration</strong></p>
+                        <p><span t-field="maintenance.duration"/></p>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -31,15 +31,34 @@ class MaintenanceRequest(models.Model):
     _name = 'maintenance.request'
     _inherit = ['maintenance.request', 'website.seo.metadata', 'website.published.mixin']
 
-    website_description = fields.Html('Website Maintenance Request Full Description', strip_style=True, translate=html_translate)
+    website_description = fields.Html('Website Maintenance Request Full Description', strip_style=True,
+                                      translate=html_translate)
     website_short_description = fields.Text('Website Maintenance Request Short Description', translate=True)
+
+    severity_rate = fields.Selection([('None', 'None'), ('Low', 'Low'), ('Medium', 'Medium'), ('High', 'High')],
+                                     string="Severity Rate")
+
+    cve_action = fields.Char(string="Action")
+
+    cve_package = fields.Char(string="Package")
+
+    is_cve = fields.Boolean(string='Is CVE', related='maintenance_team_id.is_cve')
+
+    maintenance_tag_ids = fields.Many2many('maintenance.tag', string='Tags')
 
     def _compute_website_url(self):
         super(MaintenanceRequest, self)._compute_website_url()
         for cve in self:
             cve.website_url = "/security/cve/%s" % slug(cve)
 
+
 class MaintenanceTeam(models.Model):
     _inherit = 'maintenance.team'
     
     is_cve = fields.Boolean(string='Is CVE', default=False)
+
+
+class MaintenanceTags(models.Model):
+    _name = 'maintenance.tag'
+
+    name = fields.Char(string='Tag')
