@@ -55,7 +55,7 @@ class MaintenanceRequest(models.Model):
         return {
             'type': 'ir.actions.act_url',
             'name': "Ubuntu Security",
-            'target': 'new',
+            'target': '_blank',
             'url': "https://ubuntu.com/security/%s" % self.name,
         }
 
@@ -63,7 +63,7 @@ class MaintenanceRequest(models.Model):
         return {
             'type': 'ir.actions.act_url',
             'name': "Cert Security",
-            'target': 'new',
+            'target': '_blank',
             'url': "https://www.cert.se/sok?s%s" % self.name,
         }
 
@@ -71,7 +71,7 @@ class MaintenanceRequest(models.Model):
         return {
             'type': 'ir.actions.act_url',
             'name': "CVE Mitre",
-            'target': 'new',
+            'target': '_blank',
             'url': "https://cve.mitre.org/cgi-bin/cvename.cgi?name==%s" % self.name,
         }
 

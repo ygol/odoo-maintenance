@@ -14,9 +14,11 @@
                 </div>
             </xpath>
 
+<!--
             <xpath expr="//sheet/field[@name='description']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
+-->
 
             <xpath expr="//sheet/group[1]" position="after">
                 <notebook>
