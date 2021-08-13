@@ -72,7 +72,7 @@ class MaintenanceRequest(models.Model):
             'type': 'ir.actions.act_url',
             'name': "CVE Mitre",
             'target': '_blank',
-            'url': "https://cve.mitre.org/cgi-bin/cvename.cgi?name==%s" % self.name,
+            'url': "https://cve.mitre.org/cgi-bin/cvename.cgi?name=%s" % self.name,
         }
 
 
