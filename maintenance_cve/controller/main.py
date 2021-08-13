@@ -68,4 +68,9 @@ class MaintenanceController(CustomerPortal):
 
     @http.route('/security/cve/<model("maintenance.request"):maintenance>', auth='public', type='http', website=True)
     def maintenance_security(self, maintenance, **kw):
-        return request.render("maintenance_cve.portal_cve_maintenance", {'maintenance': maintenance, 'main_object': maintenance, 'edit_page': False })
+        values = {
+            'maintenance': maintenance,
+            'main_object': maintenance,
+            'edit_page': False
+        }
+        return request.render("maintenance_cve.portal_cve_maintenance", values)

@@ -7,18 +7,39 @@
         <field name="arch" type="xml">
             <xpath expr="//sheet/div[1]" position="before">
                 <div class="oe_button_box" name="button_box" attrs="{'invisible': [('is_cve', '=', False)]}">
+                    <button class="oe_stat_button" name="check_on_ubuntu" string="Ubuntu" type="object" icon="fa-bars"/>
+                    <button class="oe_stat_button" name="check_on_cert" string="Cert" type="object" icon="fa-bars"/>
+                    <button class="oe_stat_button" name="check_on_cve_mitre" string="CVE" type="object" icon="fa-bars"/>
                     <field name="is_published" class="oe_inline" widget="website_redirect_button"/>
                 </div>
             </xpath>
-            <field name="maintenance_type" position="after">
-                <field name="severity_rate" attrs="{'invisible': [('is_cve', '=', False)]}"/>
-                <field name="cve_action" attrs="{'invisible': [('is_cve', '=', False)]}"/>
-                <field name="cve_package" attrs="{'invisible': [('is_cve', '=', False)]}"/>
-                <field name="is_cve" invisible="1"/>
-            </field>
-            <field name="email_cc" position="after">
-                <field name="maintenance_tag_ids" widget="many2many_tags"/>
-            </field>
+
+<!--
+            <xpath expr="//sheet/field[@name='description']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+-->
+
+            <xpath expr="//sheet/group[1]" position="after">
+                <notebook>
+                    <page string="Description">
+                        <field name="description"/>
+                    </page>
+                    <page string="CVE">
+                        <group>
+                            <group>
+                                <field name="severity_rate" attrs="{'invisible': [('is_cve', '=', False)]}"/>
+                                <field name="cve_action" attrs="{'invisible': [('is_cve', '=', False)]}"/>
+                                <field name="is_cve" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="cve_package" attrs="{'invisible': [('is_cve', '=', False)]}"/>
+                                <field name="maintenance_tag_ids" widget="many2many_tags"/>
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+            </xpath>
         </field>
     </record>
 
