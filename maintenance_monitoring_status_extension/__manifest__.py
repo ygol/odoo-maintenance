@@ -8,6 +8,9 @@
     'author': 'Vertelab',
     'license': 'AGPL-3',
     'category': 'category',
+    'description': """
+       This module is maintained from: https://github.com/vertelab/odoo-maintenance/
+    """,
     'depends': ['maintenance', 'monitoring_status'],
     'website': 'https://www.vertelab.com',
     'data': [

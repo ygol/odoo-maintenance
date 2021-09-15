@@ -8,6 +8,10 @@
     'author': 'Camptocamp,Odoo Community Association (OCA)',
     'license': 'AGPL-3',
     'category': 'category',
+    'description': """
+       This module is maintained from: https://github.com/vertelab/odoo-maintenance/ \n 
+       until https://github.com/camptocamp/odoo-cloud-platform/tree/14.0/monitoring_status has lifted it.
+    """,
     'depends': ['base', 'web'],
     'website': 'https://www.camptocamp.com',
     'data': [],
