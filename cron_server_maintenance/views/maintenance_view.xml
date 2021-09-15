@@ -5,16 +5,17 @@
             <field name="model">maintenance.equipment</field>
             <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
             <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']/button[1]" position="before">
+                    <button name="server_auto_sync" class="btn btn-secondary" string="Ping Server" type="object" icon="fa-globe"/>
+                </xpath>
                 <xpath expr="//div[hasclass('oe_title')]" position="before">
                     <div class="oe_right">
                         <field name="monitor_is_running" class="oe_inline" widget="state_selection"/>
                     </div>
                 </xpath>
-                <field name="employee_id" position="after">
+                <field name="owner_user_id" position="after">
                     <field name="is_monitored"/>
                     <field name="monitor_url"/>
-                </field>
-                <field name="location" position="after">
                     <field name="monitor_log"/>
                 </field>
             </field>

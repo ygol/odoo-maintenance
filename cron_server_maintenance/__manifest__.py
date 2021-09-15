@@ -3,17 +3,19 @@
 
 
 {
-    'name': 'Server Monitoring',
+    'name': 'Cron Server Maintenance',
     'version': '14.0.1.0.0',
     'author': 'Vertelab',
     'license': 'AGPL-3',
     'category': 'category',
     'description': """
-       This module is maintained from: https://github.com/vertelab/odoo-maintenance/
+       This module adds server maintenance fields to maintenance equipments
     """,
-    'depends': ['maintenance'],
+    'depends': ['maintenance', 'maintenance_monitoring_status_extension'],
     'website': 'https://www.vertelab.com',
     'data': [
+        'views/maintenance_view.xml',
+        'data/cron.xml'
     ],
     'installable': True,
 }
