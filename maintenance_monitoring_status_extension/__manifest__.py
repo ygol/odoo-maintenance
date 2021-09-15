@@ -11,7 +11,7 @@
     'description': """
        This module is maintained from: https://github.com/vertelab/odoo-maintenance/
     """,
-    'depends': ['maintenance'],
+    'depends': ['monitoring_status'],
     'website': 'https://www.vertelab.com',
     'data': [
     ],

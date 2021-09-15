@@ -9,7 +9,7 @@
     'license': 'AGPL-3',
     'category': 'category',
     'description': """
-       This module adds server maintenance fields to maintenance equipments
+       This module adds server maintenance fields to maintenance equipments and also cron job
     """,
     'depends': ['maintenance', 'maintenance_monitoring_status_extension'],
     'website': 'https://www.vertelab.com',
