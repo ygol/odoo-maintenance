@@ -18,11 +18,16 @@ class Maintenance(models.Model):
             servers = self.env[self._name].search([])
         for rec in servers:
             if rec.monitor_url and rec.is_monitored:
-                ping_req = requests.get('http://%s/monitoring/status')
+                ping_req = requests.get(rec.monitor_url)
                 if ping_req.status_code == 200:
                     response = json.loads(ping_req.content)
-                    rec.monitor_log = response.space_availability
+                    if rec.monitor_log:
+                        rec.monitor_log = rec.monitor_log + '\n\n' + str(response)
+                    else:
+                        rec.monitor_log = response
                     rec.monitor_is_running = 'done'
+                else:
+                    rec.monitor_is_running = 'offline'
 
 
 

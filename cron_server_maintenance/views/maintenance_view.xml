@@ -16,8 +16,11 @@
                 <field name="owner_user_id" position="after">
                     <field name="is_monitored"/>
                     <field name="monitor_url"/>
-                    <field name="monitor_log"/>
                 </field>
+                <xpath expr="//group[1]/group[2]" position="after">
+                    <label for="monitor_log" string="Server Log" style="font-weight: bold;"/>
+                    <field name="monitor_log"/>
+                </xpath>
             </field>
         </record>
     </data>
