@@ -13,7 +13,7 @@ class ServerMonitoring(Monitoring):
     def get_status(self):
         info = {'status': 1}
         info.update({
-            'ping_date': datetime.now(),
+            'ping_date': str(datetime.now()),
             'space_availability': os.popen('df -h').read(),
             'load': os.popen('cat /proc/loadavg ; top').read()
         })
