@@ -14,6 +14,7 @@
     'depends': ['maintenance', 'maintenance_monitoring_status_extension'],
     'website': 'https://www.vertelab.com',
     'data': [
+        'security/ir.model.access.csv',
         'views/maintenance_view.xml',
         'data/cron.xml'
     ],
