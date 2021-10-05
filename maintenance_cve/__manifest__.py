@@ -32,6 +32,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/maintenance_views.xml',
+        'views/assets.xml',
         'templates/maintenance_cve_templates.xml',
         'data/data.xml',
     ],

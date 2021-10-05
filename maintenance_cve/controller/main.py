@@ -52,6 +52,7 @@ class MaintenanceController(CustomerPortal):
         # content according to pager and archive selected
         cve_maintenances = maintenance_id.sudo().search(domain, order=order, limit=self._items_per_page, offset=pager['offset'])
         request.session['my_maintenance_history'] = cve_maintenances.ids[:100]
+        odoo_versions = request.env['maintenance.tag'].search([('name', 'ilike', 'Odoo%')])
 
         values.update({
             'date': date_begin,
@@ -63,6 +64,7 @@ class MaintenanceController(CustomerPortal):
             'sortby': sortby,
             'searchbar_filters': OrderedDict(sorted(searchbar_filters.items())),
             'filterby': filterby,
+            'odoo_versions': odoo_versions
         })
         return request.render("maintenance_cve.portal_cve_maintenance_list", values)
 
