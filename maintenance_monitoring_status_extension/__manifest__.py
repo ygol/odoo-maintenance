@@ -10,6 +10,12 @@
     'category': 'category',
     'description': """
        This module is maintained from: https://github.com/vertelab/odoo-maintenance/
+
+       
+       Purpose of the module is to answer with a json object with the load/diskspace of the server which this database is on. To query the database you need to go to the /monitoring/status url.
+       Url Syntax: http ://hostname/monitoring/status?db=databasename\n
+       
+       In order for the database to be able to answer without being logged in on you need to change the odoo.conf and add this "maintenance_montitoring_status" to the server_wide_modules.
     """,
     'depends': ['maintenance_monitoring_status'],
     'website': 'https://www.vertelab.com',
