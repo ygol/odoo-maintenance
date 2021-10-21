@@ -52,7 +52,7 @@ class MaintenanceController(CustomerPortal):
         # content according to pager and archive selected
         cve_maintenances = maintenance_id.sudo().search(domain, order=order, limit=self._items_per_page, offset=pager['offset'])
         request.session['my_maintenance_history'] = cve_maintenances.ids[:100]
-        odoo_versions = request.env['maintenance.tag'].search([('name', 'ilike', 'Odoo%')])
+        odoo_versions = request.env['maintenance.tag'].sudo().search([('name', 'ilike', 'Odoo%')])
 
         values.update({
             'date': date_begin,
@@ -68,11 +68,14 @@ class MaintenanceController(CustomerPortal):
         })
         return request.render("maintenance_cve.portal_cve_maintenance_list", values)
 
-    @http.route('/security/cve/<model("maintenance.request"):maintenance>', auth='public', type='http', website=True)
+    @http.route('/security/cve/<int:maintenance>', auth='public', type='http', website=True)
     def maintenance_security(self, maintenance, **kw):
-        values = {
-            'maintenance': maintenance,
-            'main_object': maintenance,
-            'edit_page': False
-        }
-        return request.render("maintenance_cve.portal_cve_maintenance", values)
+        res_maintenace = request.env['maintenance.request'].sudo().browse(maintenance)
+        if res_maintenace.exists():
+            values = {
+                'maintenance': res_maintenace,
+                'main_object': res_maintenace,
+                'edit_page': False
+            }
+            
+            return request.render("maintenance_cve.portal_cve_maintenance", values)

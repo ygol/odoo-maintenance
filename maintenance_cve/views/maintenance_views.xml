@@ -14,11 +14,9 @@
                 </div>
             </xpath>
 
-<!--
-            <xpath expr="//sheet/field[@name='description']" position="attributes">
-                <attribute name="invisible">1</attribute>
+            <xpath expr="//field[@name='maintenance_type']" position="after">
+                <field name="website_published" widget="toggle_button"/>
             </xpath>
--->
 
             <xpath expr="//sheet/group[1]" position="after">
                 <notebook>
@@ -30,6 +28,7 @@
                             <group>
                                 <field name="severity_rate" attrs="{'invisible': [('is_cve', '=', False)]}"/>
                                 <field name="cve_action" attrs="{'invisible': [('is_cve', '=', False)]}"/>
+                                <field name="cve_analysis" attrs="{'invisible': [('is_cve', '=', False)]}"/>
                                 <field name="is_cve" invisible="1"/>
                             </group>
                             <group>

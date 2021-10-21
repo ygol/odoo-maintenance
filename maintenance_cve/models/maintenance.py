@@ -40,6 +40,8 @@ class MaintenanceRequest(models.Model):
 
     cve_action = fields.Text(string="Action")
 
+    cve_analysis = fields.Text(string='Analysis')
+    
     cve_package = fields.Char(string="Package")
 
     is_cve = fields.Boolean(string='Is CVE', related='maintenance_team_id.is_cve')
