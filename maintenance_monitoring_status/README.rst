@@ -14,7 +14,7 @@ Installation
 
 This module depends on ``website_event``, ``event`` .
 
-This module is maintained from: https://github.com/vertelab/odoo-event/
+This module is maintained from: https://github.com/vertelab/odoo-maintenance/
 
 Configuration
 =============
