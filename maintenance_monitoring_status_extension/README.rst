@@ -23,7 +23,7 @@ Provides a HTTP route that returns health status of the instance.
 Installation
 ============
 
-This module depends on ``base``, ``web`` .
+This module depends on ``maintenance_monitoring_status``.
 
 This module is maintained from: https://github.com/vertelab/odoo-maintenance/
 

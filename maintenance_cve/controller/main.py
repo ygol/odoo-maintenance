@@ -13,7 +13,7 @@ class MaintenanceController(CustomerPortal):
     @http.route(['/security/cve-list', '/security/cve-list/page/<int:page>'], auth='public', type='http', website=True)
     def maintenance_security_list(self, page=1, date_begin=None, date_end=None, sortby=None, filterby=None, **kw):
 
-        values = self._prepare_portal_layout_values()
+        values = {} # self._prepare_portal_layout_values()
         maintenance_id = request.env['maintenance.request']
 
         domain = [
