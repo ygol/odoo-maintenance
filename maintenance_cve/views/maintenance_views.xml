@@ -52,4 +52,15 @@
             </field>
         </field>
     </record>
+
+    <record id="cve_hr_equipment_view_kanban" model="ir.ui.view">
+        <field name="name">equipment.kanban</field>
+        <field name="model">maintenance.request</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_request_view_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//span[@t-if='record.category_id.raw_value']" position="after">
+                <p><field name="website_published" widget="toggle_button"/></p>
+            </xpath>
+        </field>
+    </record>
 </odoo>
