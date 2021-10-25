@@ -20,16 +20,16 @@
 ##############################################################################
 
 {
-	'name': 'Maintenance IT',
-	'summary': 'Add IT fields to the maintenance module.',
-	'author': 'Vertel AB',
-	'contributor': '',
-	'maintainer': 'Vertel AB',
-	'repository': 'https://github.com/vertelab/odoo-maintenance',
-	'version': '14.0.1.0.0',
-	# Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
-	'license': 'AGPL-3',
-	'website': 'https://vertel.se/apps/maintenance',
+    'name': 'Maintenance IT',
+    'summary': 'Add IT fields to the maintenance module.',
+    'author': 'Vertel AB',
+    'contributor': '',
+    'maintainer': 'Vertel AB',
+    'repository': 'https://github.com/vertelab/odoo-maintenance',
+    'version': '14.0.1.0.0',
+    # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
+    'license': 'AGPL-3',
+    'website': 'https://vertel.se/apps/maintenance',
     'description': """
         Adding helper IT fields such as IP, MAC and domain.
 
