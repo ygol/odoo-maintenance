@@ -25,7 +25,7 @@
 
 {
     'name': 'Monitoring: Status',
-    'summary': 'To be able to have.....',
+    'summary': 'To answer with a json object the status of the database.',
     'author': 'Vertel.se',
     'contributor': 'Mitchell Admin',
     'maintainer': 'Vertel AB',
