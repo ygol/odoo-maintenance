@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Odoo, Open Source Management Solution, third party addon
-#    Copyright (C) 2021- Vertel AB (<http://vertel.se>).
+#    Odoo SA, Open Source Management Solution, third party addon
+#    Copyright (C) 2021- Vertel AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -14,20 +14,23 @@
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU Affero General Public License for more details.
 #
-
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 
 {
-    'name': 'Maintenance CVE',
-    'version': '14.0.0.0',
-    'category': 'Tools',
-    'summary': 'Keep track of those CVEs',
+	'name': 'Maintenance CVE',
+	'summary': 'Keep track of those CVEs',
+	'author': 'Vertel AB',
+	'contributor': '',
+	'maintainer': 'Vertel AB',
+	'repository': 'https://github.com/vertelab/odoo-maintenance',
+	'version': '14.0.0.0',
+	# Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
+	'license': 'AGPL-3',
+	'website': 'https://vertel.se/apps/maintenance',
     'description': """Generic tool to help an organization to keep track of CVEs and the work behind.""",
-    'author': 'Vertel AB',
-    'website': 'https://www.vertel.se',
     'depends': ['maintenance', 'website', 'portal'],
     'data': [
         'security/ir.model.access.csv',
