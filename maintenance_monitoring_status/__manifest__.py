@@ -26,7 +26,7 @@
 {
     'name': 'Maintenance Monitoring Status',
     'summary': 'To answer with a json object the status of the database.',
-    'author': 'Vertel.se',
+    'author': 'Vertel AB',
     'contributor': '',
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-maintenance.git',
