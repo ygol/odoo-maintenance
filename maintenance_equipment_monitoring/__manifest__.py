@@ -29,17 +29,17 @@
     'contributor': '',
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-maintenance',
-    'version': '14.0.1.0.0',
+    'version': '14.0.1.0.1',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'license': 'AGPL-3',
     'website': 'https://vertel.se/apps/maintenance',
     'description': """
-       The purpose of this module is to monitor other odoo databases to see the status of their server. In order to query other databases the need 
+       The purpose of this module is to monitor other odoo databases to see the status of their server. In order to query other databases the need
        "maintenance_monitoring_status" or "maintenance_monitoring_status_extension" installed.
-       
+
        In order to specify which database you want to monitor you fill the  Monitor URL field on the equipment view and there is  a ping button to trigger this query.
        The url needs to look like: http ://hostname/monitoring/status?db=databasename.
-       
+
        There is also cron job called "Ping Remote Server" that will ping every 60 minutes to all equipment that has "Is Monitored" field set to true.
     """,
     'depends': ['maintenance', 'maintenance_monitoring_status_extension'],
