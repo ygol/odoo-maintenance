@@ -20,26 +20,26 @@
 ##############################################################################
 
 {
-	'name': 'Maintenance CVE',
-	'summary': 'Keep track of those CVEs',
-	'author': 'Vertel AB',
-	'contributor': '',
-	'maintainer': 'Vertel AB',
-	'repository': 'https://github.com/vertelab/odoo-maintenance',
-	'version': '14.0.0.0',
-	# Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
-	'license': 'AGPL-3',
-	'website': 'https://vertel.se/apps/maintenance',
-    'description': """Generic tool to help an organization to keep track of CVEs and the work behind.""",
-    'depends': ['maintenance', 'website', 'portal'],
-    'data': [
-        'security/ir.model.access.csv',
-        'views/maintenance_views.xml',
-        'views/assets.xml',
-        'templates/maintenance_cve_templates.xml',
-        'data/data.xml',
+    "name": "Maintenance CVE",
+    "summary": "Keep track of those CVEs",
+    "author": "Vertel AB",
+    "contributor": "",
+    "maintainer": "Vertel AB",
+    "repository": "https://github.com/vertelab/odoo-maintenance",
+    "version": "14.0.0.1.0",
+    # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
+    "license": "AGPL-3",
+    "website": "https://vertel.se/apps/maintenance",
+    "description": """Generic tool to help an organization to keep track of CVEs and the work behind.""",
+    "depends": ["maintenance", "website", "portal"],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/maintenance_views.xml",
+        "views/assets.xml",
+        "templates/maintenance_cve_templates.xml",
+        "data/data.xml",
     ],
-    'application': True,
-    'installable': True,
+    "application": True,
+    "installable": True,
 }
 # vim:expandtab:smartindent:tabstop=4s:softtabstop=4:shiftwidth=4:
