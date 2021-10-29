@@ -68,13 +68,15 @@ class MaintenanceController(CustomerPortal):
         })
         return request.render("maintenance_cve.portal_cve_maintenance_list", values)
 
-    @http.route('/security/cve/<int:maintenance>', auth='public', type='http', website=True)
-    def maintenance_security(self, maintenance, **kw):
-        res_maintenace = request.env['maintenance.request'].sudo().browse(maintenance)
-        if res_maintenace.exists():
+    @http.route(['/security/cve/<int:maintenance_id>', '/secruity/cve/<model("maintenance.request"):maintenance>'], auth='public', type='http', website=True) # 
+    def maintenance_security(self, maintenance=False, maintenance_id=False, **kw):
+        if not maintenance:
+            maintenace = request.env['maintenance.request'].sudo().browse(maintenance_id)
+        
+        if maintenace.exists():
             values = {
-                'maintenance': res_maintenace,
-                'main_object': res_maintenace,
+                'maintenance': maintenace,
+                'main_object': maintenace,
                 'edit_page': False
             }
             
