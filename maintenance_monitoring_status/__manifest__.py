@@ -24,10 +24,10 @@
 
 
 {
-    'name': 'Monitoring: Status',
-    'summary': 'To be able to have.....',
-    'author': 'Vertel.se',
-    'contributor': 'Mitchell Admin',
+    'name': 'Maintenance Monitoring Status',
+    'summary': 'To answer with a json object the status of the database.',
+    'author': 'Vertel AB',
+    'contributor': '',
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-maintenance.git',
     'category': 'Tools',
