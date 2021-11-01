@@ -6,27 +6,17 @@
             <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//div[@name='button_box']/button[1]" position="before">
-                    <button name="server_auto_sync" class="btn btn-secondary" string="Ping Server" type="object" icon="fa-globe"/>
+                    <button name="view_server_log" class="btn btn-secondary" string="Server Log" type="object" icon="fa-server" attrs="{'invisible': [('is_monitored', '=', False)]}"/>
+                    <button name="server_auto_sync" class="btn btn-secondary" string="Ping Server" type="object" icon="fa-globe" attrs="{'invisible': [('is_monitored', '=', False)]}"/>
                 </xpath>
                 <xpath expr="//div[hasclass('oe_title')]" position="before">
                     <div class="oe_right">
-                        <field name="monitor_is_running" class="oe_inline" widget="state_selection"/>
+                        <field name="monitor_is_running" class="oe_inline" widget="state_selection" attrs="{'invisible': [('is_monitored', '=', False)]}"/>
                     </div>
                 </xpath>
                 <xpath expr="//field[@name='maintenance_team_id']" position="after">
-
                     <field name="is_monitored"/>
                     <field name="monitor_url"/>
-
-                </xpath>
-                <xpath expr="//group[1]/group[2]" position="after">
-                    <label for="monitor_log_ids" string="Server Log" style="font-weight: bold;"/>
-                    <field name="monitor_log_ids">
-                        <tree>
-                            <field name="date"/>
-                            <field name="monitor_log" widget="html"/>
-                        </tree>
-                    </field>
                 </xpath>
             </field>
         </record>
