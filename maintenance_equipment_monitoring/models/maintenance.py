@@ -47,6 +47,20 @@ class Maintenance(models.Model):
                     # it can't connect.
                     rec.monitor_is_running = "offline"
 
+    def view_server_log(self):
+        return {
+            'name': _('Server Log - %s' % self.name),
+            'type': 'ir.actions.act_window',
+            'res_model': 'maintenance.equipment.server.log',
+            'views': [(False, 'tree'), (False, 'form')],
+            'view_mode': 'tree,form',
+            'domain': [('maintenance_id', '=', self.id)],
+            'context': {
+                'maintenance_id': self.id,
+                'default_maintenance_id': self.id,
+            }
+        }
+
 
 class MaintenanceLog(models.Model):
     _name = "maintenance.equipment.server.log"

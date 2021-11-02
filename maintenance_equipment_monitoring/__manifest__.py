@@ -29,7 +29,7 @@
     "contributor": "",
     "maintainer": "Vertel AB",
     "repository": "https://github.com/vertelab/odoo-maintenance",
-    "version": "14.0.1.0.1",
+    "version": "14.0.1.0.2",
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code.
     # 2 = Minor. New features that are regressionable. 3 = Bug fixes
     "license": "AGPL-3",
@@ -50,6 +50,7 @@
     "data": [
         "security/ir.model.access.csv",
         "views/maintenance_view.xml",
+        "views/maintenance_server_log_view.xml",
         "data/cron.xml",
     ],
     "installable": True,
