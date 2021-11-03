@@ -30,19 +30,26 @@ class Maintenance(models.Model):
             if rec.monitor_url and rec.is_monitored:
                 try:
                     ping_req = requests.get(rec.monitor_url)
-                    response = json.loads(ping_req.content)
                     if ping_req.status_code == 200:
+                        response = json.loads(ping_req.content)
+                        self.env["maintenance.equipment.server.log"].sudo().create(
+                            {
+                                "date": datetime.now(),
+                                "monitor_log": response,
+                                "maintenance_id": rec.id,
+                            }
+                        )
                         rec.monitor_is_running = "done"
                     else:
+                        # Regardless of status_code, create a log
+                        self.env["maintenance.equipment.server.log"].sudo().create(
+                            {
+                                "date": datetime.now(),
+                                "monitor_log": ping_req.reason,
+                                "maintenance_id": rec.id,
+                            }
+                        )
                         rec.monitor_is_running = "offline"
-                    # Regardless of status_code, create a log
-                    self.env["maintenance.equipment.server.log"].sudo().create(
-                        {
-                            "date": datetime.now(),
-                            "monitor_log": response,
-                            "maintenance_id": self.id,
-                        }
-                    )
                 except Exception as e:
                     # requests.get will raise errors in some cases when
                     # it can't connect.
@@ -51,7 +58,7 @@ class Maintenance(models.Model):
                         {
                             "date": datetime.now(),
                             "monitor_log": str(e),
-                            "maintenance_id": self.id,
+                            "maintenance_id": rec.id,
                         }
                     )
                     rec.monitor_is_running = "offline"
