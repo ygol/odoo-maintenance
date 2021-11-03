@@ -16,7 +16,7 @@
                 </xpath>
                 <xpath expr="//field[@name='maintenance_team_id']" position="after">
                     <field name="is_monitored"/>
-                    <field name="monitor_url"/>
+                    <field name="monitor_url" attrs="{'invisible': [('is_monitored', '=', False)]}"/>
                 </xpath>
             </field>
         </record>
