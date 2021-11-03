@@ -30,21 +30,30 @@ class Maintenance(models.Model):
             if rec.monitor_url and rec.is_monitored:
                 try:
                     ping_req = requests.get(rec.monitor_url)
+                    response = json.loads(ping_req.content)
                     if ping_req.status_code == 200:
-                        response = json.loads(ping_req.content)
-                        self.env["maintenance.equipment.server.log"].sudo().create(
-                            {
-                                "date": datetime.now(),
-                                "monitor_log": response,
-                                "maintenance_id": self.id,
-                            }
-                        )
                         rec.monitor_is_running = "done"
                     else:
                         rec.monitor_is_running = "offline"
-                except Exception:
+                    # Regardless of status_code, create a log
+                    self.env["maintenance.equipment.server.log"].sudo().create(
+                        {
+                            "date": datetime.now(),
+                            "monitor_log": response,
+                            "maintenance_id": self.id,
+                        }
+                    )
+                except Exception as e:
                     # requests.get will raise errors in some cases when
                     # it can't connect.
+                    # creates a log if it cannot connect
+                    self.env["maintenance.equipment.server.log"].sudo().create(
+                        {
+                            "date": datetime.now(),
+                            "monitor_log": str(e),
+                            "maintenance_id": self.id,
+                        }
+                    )
                     rec.monitor_is_running = "offline"
 
     def view_server_log(self):
