@@ -21,19 +21,32 @@
 
 from odoo import models, fields, api, exceptions, _
 import logging
+
 _logger = logging.getLogger(__name__)
 
 
 class MaintanenceEquipment(models.Model):
-    _inherit = 'maintenance.equipment'
+    _inherit = "maintenance.equipment"
 
-    operation_id  = fields.Many2one(comodel_name='maintenance.equipment.operation',string="Operation",help="Main operation") 
-    operation_ids = fields.Many2many(comodel_name='maintenance.equipment.operation',string='Operations',help="List of operations",widget='many2many_tags')
-    
+    operation_id = fields.Many2one(
+        comodel_name="maintenance.equipment.operation",
+        string="Operation",
+        help="Main operation",
+    )
+    operation_ids = fields.Many2many(
+        comodel_name="maintenance.equipment.operation",
+        string="Operations",
+        help="List of operations",
+        widget="many2many_tags",
+    )
+
 
 class MaintanenceEquipmentOperation(models.Model):
-    _name = 'maintenance.equipment.operation'
-    
-    name = fields.Char(string='Operation', size=64, trim=True, )
-    
-    
+    _name = "maintenance.equipment.operation"
+    _description = "maintenance.equipment.operation"
+
+    name = fields.Char(
+        string="Operation",
+        size=64,
+        trim=True,
+    )

@@ -65,21 +65,22 @@ class Maintenance(models.Model):
 
     def view_server_log(self):
         return {
-            'name': _('Server Log - %s' % self.name),
-            'type': 'ir.actions.act_window',
-            'res_model': 'maintenance.equipment.server.log',
-            'views': [(False, 'tree'), (False, 'form')],
-            'view_mode': 'tree,form',
-            'domain': [('maintenance_id', '=', self.id)],
-            'context': {
-                'maintenance_id': self.id,
-                'default_maintenance_id': self.id,
-            }
+            "name": _("Server Log - %s" % self.name),
+            "type": "ir.actions.act_window",
+            "res_model": "maintenance.equipment.server.log",
+            "views": [(False, "tree"), (False, "form")],
+            "view_mode": "tree,form",
+            "domain": [("maintenance_id", "=", self.id)],
+            "context": {
+                "maintenance_id": self.id,
+                "default_maintenance_id": self.id,
+            },
         }
 
 
 class MaintenanceLog(models.Model):
     _name = "maintenance.equipment.server.log"
+    _description = "maintenance.equipment.server.log"
     _rec_name = "date"
 
     date = fields.Datetime(string="Date")
