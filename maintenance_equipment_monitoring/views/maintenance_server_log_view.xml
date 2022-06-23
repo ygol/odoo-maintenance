@@ -9,6 +9,8 @@
                         <field name="date"/>
                         <field name="monitor_log"/>
                         <field name="maintenance_id"/>
+                        <field name="status"/>
+                        <field name="space_availability"/>
                     </group>
                 </form>
             </field>
@@ -18,9 +20,11 @@
             <field name="name">maintenance.equipment.server.log.tree</field>
             <field name="model">maintenance.equipment.server.log</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree decoration-success="status=='1'" decoration-danger="status=='0'">
                     <field name="date"/>
                     <field name="maintenance_id"/>
+                    <field name="status"/>
+                    <field name="space_availability"/>
                 </tree>
             </field>
         </record>

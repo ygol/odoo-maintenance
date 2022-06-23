@@ -2,6 +2,7 @@ from odoo import models, fields, api, _
 import requests
 import json
 from datetime import datetime
+import ast
 
 
 class Maintenance(models.Model):
@@ -84,5 +85,34 @@ class MaintenanceLog(models.Model):
     _rec_name = "date"
 
     date = fields.Datetime(string="Date")
-    monitor_log = fields.Html(string="Log")
+    monitor_log = fields.Text(string="Log")
     maintenance_id = fields.Many2one("maintenance.equipment", string="Maintenance")
+    status = fields.Selection([('0', 'Failed'), ('1', 'Successful')], string="Status",
+                              compute='_get_status_info')
+    space_availability = fields.Char(string="Space Availability", compute='_get_space_availability')
+
+    @api.depends('monitor_log')
+    def _get_status_info(self):
+        for rec in self:
+            if rec.monitor_log:
+                json_fmt = ast.literal_eval(rec.monitor_log)
+                status = json_fmt.get('status', False)
+                if status:
+                    rec.status = str(status)
+                else:
+                    rec.status = str(0)
+            else:
+                rec.status = False
+
+    @api.depends('monitor_log')
+    def _get_space_availability(self):
+        for rec in self:
+            if rec.monitor_log:
+                json_fmt = ast.literal_eval(rec.monitor_log)
+                space_availability = json_fmt.get('space_availability', False)
+                if space_availability:
+                    rec.space_availability = ''.join([
+                        item for item in space_availability.splitlines() if item.startswith('/dev/vd')
+                    ])
+            else:
+                rec.space_availability = False
