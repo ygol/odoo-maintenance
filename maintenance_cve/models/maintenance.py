@@ -97,5 +97,6 @@ class MaintenanceTeam(models.Model):
 
 class MaintenanceTags(models.Model):
     _name = "maintenance.tag"
+    _description = "Maintenance Tag"
 
     name = fields.Char(string="Tag")
