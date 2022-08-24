@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    "name": "Maintenance CVE",
+    "name": "Maintenance: CVE",
     "summary": "Keep track of those CVEs",
     "author": "Vertel AB",
     "contributor": "",
