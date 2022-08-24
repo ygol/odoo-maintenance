@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    'name': 'Maintenance Equipment Request Copy',
+    'name': 'Maintenance: Equipment Request Copy',
     'summary': 'Wizard for copying request on one or more equipments',
     'author': 'Vertel AB',
     'contributor': '',
