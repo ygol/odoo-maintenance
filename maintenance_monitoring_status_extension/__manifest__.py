@@ -33,7 +33,7 @@
     'version': '14.0.1.0.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'license': 'AGPL-3',
-    'website': 'https://vertel.se',
+    'website': 'https://vertel.se/apps/odoo-maintenance/maintenance_monitoring_status_extension',
     'description': """
        This module is maintained from: https://github.com/vertelab/odoo-maintenance/
 
