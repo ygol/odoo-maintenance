@@ -23,7 +23,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
 {
-    "name": "Maintenance equipment monitoring",
+    "name": "Maintenance: equipment monitoring",
     "summary": "For other Odoo databases to monitor the status of their server.",
     "author": "Vertel AB",
     "contributor": "",
