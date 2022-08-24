@@ -24,7 +24,7 @@
 
 
 {
-    'name': 'Maintenance Monitoring Status',
+    'name': 'Maintenance: Monitoring Status',
     'summary': 'To answer with a json object the status of the database.',
     'author': 'Vertel AB',
     'contributor': '',
