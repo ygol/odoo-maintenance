@@ -29,7 +29,7 @@
     "version": "14.0.0.1.0",
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     "license": "AGPL-3",
-    "website": "https://vertel.se/apps/maintenance",
+    "website": "https://vertel.se/apps/odoo-maintenance/maintenance_cve",
     "description": """Generic tool to help an organization to keep track of CVEs and the work behind.""",
     "depends": ["maintenance", "website", "portal"],
     "data": [
