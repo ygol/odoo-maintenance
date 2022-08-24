@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    'name': 'Maintenance IT',
+    'name': 'Maintenance: IT',
     'summary': 'Add IT fields to the maintenance module.',
     'author': 'Vertel AB',
     'contributor': '',
