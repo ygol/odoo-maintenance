@@ -23,7 +23,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
 {
-    'name': 'Maintenance Server Monitoring',
+    'name': 'Maintenance: Server Monitoring',
     'summary': 'To answer with a json object with the load/diskspace of the server.',
     'author': 'Vertel AB',
     'contributor': 'Mitchell Admin',
