@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    'name': 'Maintenance Equipment Operation',
+    'name': 'Maintenance: Equipment Operation',
     'summary': 'Adds operation on equipment.',
     'author': 'Vertel AB',
     'contributor': '',
