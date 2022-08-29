@@ -483,7 +483,7 @@
             <field name="model">project.project</field>
             <field name="inherit_id" ref="project.view_project"/>
             <field name="arch" type="xml">
-                <field name="label_tasks" position="before">
+                <field name="user_id" position="after">
                     <field name="use_scrum" string="Using Scrum" optional="show"/>
                 </field>
                 <field name="user_id" position="attributes">
@@ -818,7 +818,7 @@
             <field name="model">project.project</field>
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
-                <button name="attachment_tree_view" position="before">
+                <xpath expr="//div[hasclass('oe_button_box')]/button" position="before">
                     <button class="oe_inline oe_stat_button" type="action" icon="fa-files-o" attrs="{'invisible': [('use_scrum', '=', False)]}" name="%(action_ps_us_current)d">
                         <field name="user_story_count" widget="statinfo" />
                     </button>
@@ -831,18 +831,18 @@
                     <button class="oe_inline oe_stat_button" type="action" icon="fa-files-o" attrs="{'invisible': [('use_scrum', '=', False)]}" name="%(action_ps_meeting_current)d">
                         <field name="meeting_count" widget="statinfo" />
                     </button>
-                </button>
+                </xpath>
 <!--                <field name="name" position="after">-->
 <!--                    <field name="use_scrum" class="oe_inline"/>-->
 <!--                    <label for="use_scrum" string="Use Scrum"/>-->
 <!--                </field>-->
 
-                <xpath expr="//div[@name='options_active']/div[last()]" position="before">
-                    <div>
-                        <field name="use_scrum" class="oe_inline oe_input_align"/>
-                        <label for="use_scrum" class="oe_inline" string="Use Scrum"/>
-                    </div>
-                </xpath>
+                <xpath expr="//div[hasclass('oe_title')]/h1" position="after">
+                     <div name="options_active">
+                         <div>
+                             <field name="use_scrum" class="oe_inline oe_input_align"/>
+                             <label for="use_scrum" class="oe_inline" string="Use Scrum"/>
+                         </div>
 
                 <!--        <field name="user_id" position="replace">-->
                 <!--          <label for="user_id" string="Scrum Master" attrs="{'invisible': [('use_scrum', '=', False)]}" />-->
