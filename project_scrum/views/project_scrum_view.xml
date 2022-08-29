@@ -15,7 +15,7 @@
                     <filter string="Previous Sprint" name="prev_sprint" domain="[('prev_sprint','=',True)]" />
                     <filter string="Next Sprint" name="next_sprint" domain="[('next_sprint','=',True)]" />
                 </filter>
-                <field name="prarent_id" position="after">
+                <field name="stage_id" position="after">
                     <field name="sprint_id" />
                     <field name="sprint_ids" />
                 </field>
